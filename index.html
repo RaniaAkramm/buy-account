@@ -3,95 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="site-title">LividShop | Buy Gaming Accounts</title>
+    <title id="site-title">LividShop | Gaming Accounts</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap');
-        
         :root { --font-en: 'Inter', sans-serif; --font-ar: 'Tajawal', sans-serif; }
         .lang-ar { font-family: var(--font-ar); }
         .lang-en { font-family: var(--font-en); }
-        
-        .tab-btn.active {
-            background-color: #4f46e5;
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
-        }
-        
-        .product-card { transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-8px); }
+        .tab-btn.active { background-color: #4f46e5; color: white; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+        .product-card { transition: transform 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 lang-en">
 
     <!-- Header -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-100">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-lg shadow-indigo-200">
-                    <i class="fas fa-user-shield text-xl"></i>
+                <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-md">
+                    <i class="fas fa-shield-halved text-xl"></i>
                 </div>
-                <h1 class="text-2xl font-black tracking-tighter">Livid<span class="text-indigo-600">Shop</span></h1>
+                <h1 class="text-2xl font-black tracking-tight">Livid<span class="text-indigo-600">Shop</span></h1>
             </div>
             
-            <button onclick="toggleLanguage()" class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-indigo-600 transition-all flex items-center gap-2">
+            <button onclick="toggleLanguage()" class="bg-slate-900 text-white px-5 py-2 rounded-full font-bold text-xs flex items-center gap-2 hover:bg-indigo-600 transition">
                 <i class="fas fa-language"></i>
                 <span id="lang-btn-text">العربية</span>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-slate-950 text-white py-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 id="hero-title" class="text-3xl md:text-5xl font-black mb-4 leading-tight">Efootball 2026 Accounts</h2>
-            <p id="hero-desc" class="text-slate-400 text-lg max-w-2xl mx-auto italic">Verified accounts with instant delivery. Select your device below.</p>
+    <!-- Hero -->
+    <section class="bg-slate-950 text-white py-12 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 id="hero-title" class="text-3xl md:text-5xl font-black mb-4">Premium Accounts</h2>
+            <p id="hero-desc" class="text-slate-400 text-sm md:text-base italic">Instant Delivery • Safe • Best Prices</p>
         </div>
     </section>
 
-    <!-- Category Tabs -->
-    <div class="container mx-auto px-4 -mt-8 relative z-20">
-        <div class="bg-white p-2 rounded-2xl shadow-xl border border-slate-100 flex gap-2 max-w-md mx-auto">
-            <button onclick="switchCategory('android')" id="tab-android" class="tab-btn active flex-1 py-3 rounded-xl font-bold transition-all text-center">
-                Android
-            </button>
-            <button onclick="switchCategory('ios')" id="tab-ios" class="tab-btn flex-1 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 transition-all text-center">
-                iOS
-            </button>
+    <!-- Tabs -->
+    <div class="container mx-auto px-4 -mt-6 relative z-20">
+        <div class="bg-white p-1.5 rounded-2xl shadow-lg border border-slate-100 flex gap-2 max-w-xs mx-auto">
+            <button onclick="switchCategory('android')" id="tab-android" class="tab-btn active flex-1 py-2.5 rounded-xl font-bold text-sm transition-all">Android</button>
+            <button onclick="switchCategory('ios')" id="tab-ios" class="tab-btn flex-1 py-2.5 rounded-xl font-bold text-sm text-slate-400 transition-all">iOS</button>
         </div>
     </div>
 
-    <!-- Products Grid -->
+    <!-- Grid -->
     <main class="container mx-auto px-4 py-12">
-        <div class="flex items-center gap-4 mb-8">
-            <div class="h-8 w-2 bg-indigo-600 rounded-full"></div>
-            <h3 id="section-title" class="text-2xl font-bold">Available Accounts</h3>
+        <div id="loading" class="text-center py-20 text-slate-300">
+            <i class="fas fa-spinner fa-spin text-3xl"></i>
         </div>
-
-        <div id="loading" class="text-center py-20 text-slate-400">
-            <i class="fas fa-circle-notch fa-spin text-3xl"></i>
-        </div>
-
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden">
-            <!-- Rendered by JS -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden">
+            <!-- JS Injection -->
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h4 id="footer-title" class="text-xl font-bold text-slate-800 mb-8 tracking-tight">Order via WhatsApp</h4>
-            <div class="flex justify-center">
-                <a href="https://wa.me/9647805380508" target="_blank" class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-green-100 hover:scale-110 transition">
-                    <i class="fab fa-whatsapp text-3xl"></i>
-                </a>
-            </div>
-            <p class="text-slate-400 text-sm mt-10">© 2024 LividShop. Safe & Trusted.</p>
-        </div>
+    <footer class="bg-white border-t py-10 text-center">
+        <p class="text-slate-400 text-xs">© 2024 LividShop | Gaming Marketplace</p>
     </footer>
 
     <script>
@@ -99,41 +72,42 @@
         let currentLang = 'en';
         let currentCategory = 'android';
 
+        const config = {
+            whatsapp: "+9647805380508",
+            email: "GoLividShop@gmail.com"
+        };
+
         const translations = {
             en: {
-                site_title: "LividShop | Gaming Accounts",
-                hero_title: "Efootball 2026 Accounts",
-                hero_desc: "Verified accounts with instant delivery. Select your device below.",
-                section_title: "Available Accounts",
-                footer_title: "Order Your Account",
                 lang_btn: "العربية",
-                buy_btn: "Buy via WhatsApp",
-                currency: "$",
-                device_label: "Device"
+                hero_title: "Efootball 2026 Accounts",
+                hero_desc: "Select your device and start playing now.",
+                buy_wa: "WhatsApp",
+                buy_email: "Gmail",
+                android_tag: "Android",
+                ios_tag: "iOS"
             },
             ar: {
-                site_title: "متجر ليفيد | حسابات ألعاب",
-                hero_title: "حسابات ايفوتبول 2026",
-                hero_desc: "حسابات موثوقة مع تسليم فوري. اختر نوع جهازك أدناه.",
-                section_title: "الحسابات المتوفرة",
-                footer_title: "اطلب حسابك الآن",
                 lang_btn: "English",
-                buy_btn: "شراء عبر واتساب",
-                currency: "$",
-                device_label: "الجهاز"
+                hero_title: "حسابات ايفوتبول 2026",
+                hero_desc: "اختر نوع جهازك وابدأ اللعب الآن.",
+                buy_wa: "واتساب",
+                buy_email: "جيميل",
+                android_tag: "أندرويد",
+                ios_tag: "آيفون"
             }
         };
 
-        async function loadData() {
+        async function init() {
             try {
-                const response = await fetch('products.json');
-                productsData = await response.json();
+                const res = await fetch('products.json');
+                productsData = await res.json();
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('products-grid').classList.remove('hidden');
                 updateUI();
-            } catch (error) {
-                console.error("Error loading products.json:", error);
-                document.getElementById('loading').innerHTML = "Error loading products. Please check products.json file.";
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loading').innerText = "Failed to load products. Check products.json";
             }
         }
 
@@ -144,54 +118,51 @@
 
         function switchCategory(cat) {
             currentCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-indigo-600', 'text-white');
-                btn.classList.add('text-slate-500');
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.classList.add('text-slate-400');
             });
-            const activeTab = document.getElementById(`tab-${cat}`);
-            activeTab.classList.add('active');
-            activeTab.classList.remove('text-slate-500');
-            renderProducts();
+            document.getElementById(`tab-${cat}`).classList.add('active');
+            document.getElementById(`tab-${cat}`).classList.remove('text-slate-400');
+            render();
         }
 
         function updateUI() {
             const isAr = currentLang === 'ar';
             const t = translations[currentLang];
-            
             document.getElementById('main-html').dir = isAr ? 'rtl' : 'ltr';
-            document.getElementById('main-html').lang = currentLang;
             document.body.className = `bg-slate-50 text-slate-900 lang-${currentLang}`;
-            
-            document.title = t.site_title;
             document.getElementById('lang-btn-text').innerText = t.lang_btn;
             document.getElementById('hero-title').innerText = t.hero_title;
             document.getElementById('hero-desc').innerText = t.hero_desc;
-            document.getElementById('section-title').innerText = t.section_title;
-            document.getElementById('footer-title').innerText = t.footer_title;
-
-            renderProducts();
+            render();
         }
 
-        function renderProducts() {
+        function render() {
             const grid = document.getElementById('products-grid');
             const t = translations[currentLang];
             const products = productsData[currentCategory] || [];
             
             grid.innerHTML = products.map(p => `
-                <div class="product-card bg-white rounded-3xl border border-slate-100 overflow-hidden flex flex-col h-full shadow-sm">
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm flex flex-col">
                     <div class="relative aspect-video bg-slate-100">
-                        <img src="${p.image}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x225?text=LividShop'">
-                        <div class="absolute top-3 left-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-md uppercase">
-                            ${t.device_label}: ${currentCategory}
-                        </div>
+                        <img src="${p.image}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x225?text=Efootball'">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white text-[9px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                            ${currentCategory === 'android' ? t.android_tag : t.ios_tag}
+                        </span>
                     </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h4 class="text-lg font-bold mb-1 text-slate-800">${p.title}</h4>
-                        <p class="text-indigo-600 font-black text-xl mb-5">${p.info} = ${t.currency}${p.price}</p>
-                        <div class="mt-auto">
+                    <div class="p-4 flex-grow flex flex-col">
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">${p.title}</h4>
+                        <div class="text-indigo-600 font-black text-lg mb-4">${p.info} = $${p.price}</div>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-auto">
                             <button onclick="orderWA('${p.title}', '${p.info}', '${p.price}')" 
-                                class="w-full bg-green-500 hover:bg-green-600 text-white py-3.5 rounded-2xl font-bold transition flex items-center justify-center gap-2">
-                                <i class="fab fa-whatsapp text-lg"></i> ${t.buy_btn}
+                                class="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-[11px] font-bold transition flex items-center justify-center gap-1">
+                                <i class="fab fa-whatsapp"></i> ${t.buy_wa}
+                            </button>
+                            <button onclick="orderEmail('${p.title}', '${p.info}', '${p.price}')" 
+                                class="bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded-lg text-[11px] font-bold transition flex items-center justify-center gap-1">
+                                <i class="far fa-envelope"></i> ${t.buy_email}
                             </button>
                         </div>
                     </div>
@@ -200,11 +171,18 @@
         }
 
         function orderWA(title, info, price) {
-            const text = encodeURIComponent(`Order from LividShop:\nProduct: ${title}\nInfo: ${info}\nDevice: ${currentCategory}\nPrice: $${price}`);
-            window.open(`https://wa.me/9647805380508?text=${text}`, '_blank');
+            const msg = encodeURIComponent(`Hello LividShop!\nI want to buy:\n${title}\nDetails: ${info}\nDevice: ${currentCategory}\nPrice: $${price}`);
+            window.open(`https://wa.me/${config.whatsapp.replace('+', '')}?text=${msg}`, '_blank');
         }
 
-        window.onload = loadData;
+        function orderEmail(title, info, price) {
+            const sub = encodeURIComponent(`Order: ${title}`);
+            const body = encodeURIComponent(`Product: ${title}\nInfo: ${info}\nDevice: ${currentCategory}\nPrice: $${price}`);
+            window.location.href = `mailto:${config.email}?subject=${sub}&body=${body}`;
+        }
+
+        window.onload = init;
     </script>
 </body>
 </html>
+
