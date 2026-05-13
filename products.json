@@ -1,20 +1,122 @@
 [
   {
     "id": 1,
-    "name_en": "Efootball 2026 - Epic Team",
-    "name_ar": "حساب ايفوت 2026 - فريق ايبك",
-    "price": "120,000",
-    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500",
-    "desc_en": "3000+ Team Strength, Full Epic Cards.",
-    "desc_ar": "قوة الفريق +3000، تشكيلة ايبك كاملة."
+    "name_en": "Efootball 2100 🪙 (Android)",
+    "name_ar": "ايفوتبول 2100 كوينز (أندرويد)",
+    "price": "4",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "2100 Coins for Android accounts. Secure Recharge.",
+    "desc_ar": "شحن 2100 كوينز لحسابات الأندرويد. شحن آمن ومضمون."
   },
   {
     "id": 2,
-    "name_en": "Bounty Rush - EX Gear 5",
-    "name_ar": "بونتي راش - لوفي قير 5",
-    "price": "90,000",
-    "image": "https://images.unsplash.com/photo-1618519764620-7403abdbf956?w=500",
-    "desc_en": "Level 100 Gear 5 Luffy, max support.",
-    "desc_ar": "لوفي القير الخامس لفل 100، دعم كامل."
+    "name_en": "Efootball 3100 🪙 (Android)",
+    "name_ar": "ايفوتبول 3100 كوينز (أندرويد)",
+    "price": "4.6",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "3100 Coins for Android accounts.",
+    "desc_ar": "شحن 3100 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 3,
+    "name_en": "Efootball 4100 🪙 (Android)",
+    "name_ar": "ايفوتبول 4100 كوينز (أندرويد)",
+    "price": "6",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "4100 Coins for Android accounts.",
+    "desc_ar": "شحن 4100 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 4,
+    "name_en": "Efootball 5100 🪙 (Android)",
+    "name_ar": "ايفوتبول 5100 كوينز (أندرويد)",
+    "price": "7.8",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "5100 Coins for Android accounts.",
+    "desc_ar": "شحن 5100 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 5,
+    "name_en": "Efootball 6000 🪙 (Android)",
+    "name_ar": "ايفوتبول 6000 كوينز (أندرويد)",
+    "price": "9.5",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "6000 Coins for Android accounts.",
+    "desc_ar": "شحن 6000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 6,
+    "name_en": "Efootball 7000 🪙 (Android)",
+    "name_ar": "ايفوتبول 7000 كوينز (أندرويد)",
+    "price": "12",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "7000 Coins for Android accounts.",
+    "desc_ar": "شحن 7000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 7,
+    "name_en": "Efootball 8000 🪙 (Android)",
+    "name_ar": "ايفوتبول 8000 كوينز (أندرويد)",
+    "price": "15.5",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "8000 Coins for Android accounts.",
+    "desc_ar": "شحن 8000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 8,
+    "name_en": "Efootball 9000 🪙 (Android)",
+    "name_ar": "ايفوتبول 9000 كوينز (أندرويد)",
+    "price": "18",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "9000 Coins for Android accounts.",
+    "desc_ar": "شحن 9000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 9,
+    "name_en": "Efootball 10000 🪙 (Android)",
+    "name_ar": "ايفوتبول 10000 كوينز (أندرويد)",
+    "price": "21",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "10000 Coins for Android accounts.",
+    "desc_ar": "شحن 10000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 10,
+    "name_en": "Efootball 11000 🪙 (Android)",
+    "name_ar": "ايفوتبول 11000 كوينز (أندرويد)",
+    "price": "24",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "11000 Coins for Android accounts.",
+    "desc_ar": "شحن 11000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 11,
+    "name_en": "Efootball 12000 🪙 (Android)",
+    "name_ar": "ايفوتبول 12000 كوينز (أندرويد)",
+    "price": "28",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "12000 Coins for Android accounts.",
+    "desc_ar": "شحن 12000 كوينز لحسابات الأندرويد."
+  },
+  {
+    "id": 12,
+    "name_en": "Efootball 13000 🪙 (Android)",
+    "name_ar": "ايفوتبول 13000 كوينز (أندرويد)",
+    "price": "31",
+    "currency": "$",
+    "image": "1000227623.jpg",
+    "desc_en": "13000 Coins for Android accounts.",
+    "desc_ar": "شحن 13000 كوينز لحسابات الأندرويد."
   }
 ]
