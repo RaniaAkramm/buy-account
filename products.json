@@ -1,20 +1,29 @@
 [
-{
-"id": 1,
-"name_en": "Iphone 15 Pro Max",
-"name_ar": "ايفون 15 برو ماكس",
-"price": "1,650,000",
-"image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500",
-"desc_en": "Natural Titanium, 256GB storage.",
-"desc_ar": "تيتانيوم طبيعي، ذاكرة 256 جيجابايت."
-},
-{
-"id": 2,
-"name_en": "Sony WH-1000XM5",
-"name_ar": "سماعة سوني XM5",
-"price": "380,000",
-"image": "https://images.unsplash.com/photo-1644933214828-569b3f3e1f0e?w=500",
-"desc_en": "Industry leading noise canceling.",
-"desc_ar": "أفضل تقنية عزل ضجيج في العالم."
-}
+  {
+    "id": 1,
+    "name_en": "Efootball 2026 | Full Epic Squad",
+    "name_ar": "حساب ايفوت 2026 | تشكيلة ايبك كاملة",
+    "price": "120,000",
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500",
+    "desc_en": "Includes Messi, Ronaldo Epic and 2000 coins.",
+    "desc_ar": "يحتوي على ميسي ورونالدو ايبك مع 2000 كوينز."
+  },
+  {
+    "id": 2,
+    "name_en": "One Piece Bounty Rush | EX Gear 5",
+    "name_ar": "بونتي راش | لوفي قير 5 أقصى لفل",
+    "price": "90,000",
+    "image": "https://images.unsplash.com/photo-1618519764620-7403abdbf956?w=500",
+    "desc_en": "Max level Gear 5 Luffy + EX Zoro.",
+    "desc_ar": "لوفي القير الخامس لفل 100 مع زورو EX."
+  },
+  {
+    "id": 3,
+    "name_en": "Efootball Account | Starter Pack",
+    "name_ar": "حساب ايفوت | باقة المبتدئين",
+    "price": "25,000",
+    "image": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=500",
+    "desc_en": "Perfect starter account with 5000 coins.",
+    "desc_ar": "حساب مثالي للبداية مع 5000 كوينز."
+  }
 ]
