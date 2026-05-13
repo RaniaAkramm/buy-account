@@ -3,109 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="site-title">LividShop | Gaming Store</title>
+    <title id="site-title">LividShop | Premium Gaming Store</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap');
+        
         :root { --font-en: 'Inter', sans-serif; --font-ar: 'Tajawal', sans-serif; }
         .lang-ar { font-family: var(--font-ar); }
         .lang-en { font-family: var(--font-en); }
-        .tab-btn.active { background-color: #4f46e5; color: white; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2); }
-        .product-card { transition: all 0.2s ease; border-radius: 1.5rem; overflow: hidden; }
-        .product-card:hover { transform: translateY(-5px); }
-        /* تصميم زر "قريباً" */
-        .coming-soon-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444; padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: bold; }
+        
+        /* Game Selection Tabs */
+        .game-tab { position: relative; transition: all 0.3s; }
+        .game-tab.active { color: #4f46e5; }
+        .game-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #4f46e5;
+            border-radius: 20px;
+        }
+        
+        /* Platform Tabs */
+        .device-tab.active { 
+            background-color: #4f46e5; 
+            color: white; 
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); 
+        }
+        
+        .product-card { transition: all 0.3s ease; border-radius: 1.5rem; overflow: hidden; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1); }
+        
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 lang-en">
 
-    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="bg-indigo-600 p-1.5 rounded-lg text-white shadow-sm"><i class="fas fa-shield-halved text-lg"></i></div>
-                <h1 class="text-xl font-black">Livid<span class="text-indigo-600">Shop</span></h1>
+                <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-sm">
+                    <i class="fas fa-crown text-sm"></i>
+                </div>
+                <h1 class="text-xl font-black tracking-tight">Livid<span class="text-indigo-600">Shop</span></h1>
             </div>
-            <button onclick="toggleLanguage()" class="bg-slate-900 text-white px-4 py-1.5 rounded-full font-bold text-[10px] flex items-center gap-2 hover:bg-indigo-600 transition shadow-sm uppercase">
-                <i class="fas fa-language"></i> <span id="lang-btn-text">العربية</span>
+            
+            <button onclick="toggleLanguage()" class="bg-slate-900 text-white px-4 py-2 rounded-full font-bold text-[10px] flex items-center gap-2 uppercase tracking-widest hover:bg-indigo-600 transition-all">
+                <i class="fas fa-language"></i>
+                <span id="lang-btn-text">العربية</span>
             </button>
         </div>
     </header>
 
-    <!-- قائمة الألعاب (القائمة الجديدة) -->
-    <div class="bg-white border-b border-slate-100 overflow-x-auto whitespace-nowrap scrollbar-hide">
-        <div class="container mx-auto px-4 flex gap-6 py-4">
-            <button onclick="selectGame('efootball')" id="game-efootball" class="font-bold text-sm text-indigo-600 border-b-2 border-indigo-600 pb-1">Efootball</button>
-            <button onclick="selectGame('bountyrush')" id="game-bountyrush" class="font-bold text-sm text-slate-400 hover:text-slate-600 pb-1">Bounty Rush</button>
-            <button onclick="selectGame('tsubasa')" id="game-tsubasa" class="font-bold text-sm text-slate-400 hover:text-slate-600 pb-1">Captain Tsubasa</button>
-            <button onclick="selectGame('yugioh')" id="game-yugioh" class="font-bold text-sm text-slate-400 hover:text-slate-600 pb-1">Yu-Gi-Oh!</button>
-            <button onclick="selectGame('genshin')" id="game-genshin" class="font-bold text-sm text-slate-400 hover:text-slate-600 pb-1">Genshin Impact</button>
+    <!-- Bio & Welcome Section -->
+    <section class="bg-slate-950 text-white pt-12 pb-16 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 id="hero-title" class="text-3xl md:text-5xl font-black mb-6">Livid Gaming Store</h2>
+            <div class="max-w-xl mx-auto bg-white/5 border border-white/10 p-5 rounded-[2rem] backdrop-blur-md">
+                <p id="bio-text" class="text-slate-400 text-sm md:text-base leading-relaxed italic">
+                    Welcome to LividShop. We provide verified gaming accounts with the best market prices. Our goal is to ensure a safe and fast delivery experience for every gamer.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Navigation Bar -->
+    <nav class="bg-white border-b border-slate-100 overflow-x-auto scrollbar-hide sticky top-[57px] z-40">
+        <div class="container mx-auto px-4 flex gap-8 py-3 min-w-max justify-center">
+            <button onclick="selectGame('efootball')" id="game-efootball" class="game-tab active font-black text-[11px] uppercase tracking-wider transition-all">Efootball</button>
+            <button onclick="selectGame('bountyrush')" id="game-bountyrush" class="game-tab text-slate-400 font-black text-[11px] uppercase tracking-wider transition-all">Bounty Rush</button>
+            <button onclick="selectGame('tsubasa')" id="game-tsubasa" class="game-tab text-slate-400 font-black text-[11px] uppercase tracking-wider transition-all">Captain Tsubasa</button>
+            <button onclick="selectGame('yugioh')" id="game-yugioh" class="game-tab text-slate-400 font-black text-[11px] uppercase tracking-wider transition-all">Yu-Gi-Oh!</button>
+            <button onclick="selectGame('genshin')" id="game-genshin" class="game-tab text-slate-400 font-black text-[11px] uppercase tracking-wider transition-all">Genshin</button>
+        </div>
+    </nav>
+
+    <!-- Platform Selector (Separated with Padding) -->
+    <div id="device-tabs-container" class="py-8 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white p-1 rounded-2xl shadow-sm border border-slate-200 flex gap-1 max-w-[240px] mx-auto">
+                <button onclick="switchCategory('android')" id="tab-android" class="device-tab active flex-1 py-2.5 rounded-xl font-bold text-[10px] transition-all">ANDROID</button>
+                <button onclick="switchCategory('ios')" id="tab-ios" class="device-tab flex-1 py-2.5 rounded-xl font-bold text-[10px] text-slate-400 transition-all">IOS</button>
+            </div>
         </div>
     </div>
 
-    <!-- أزرار Android / iOS (تظهر فقط في ايفوتبول حالياً) -->
-    <div id="device-selector" class="container mx-auto px-4 mt-6">
-        <div class="bg-slate-200/50 p-1 rounded-2xl flex gap-1 max-w-[240px] mx-auto">
-            <button onclick="switchCategory('android')" id="tab-android" class="tab-btn active flex-1 py-2 rounded-xl font-bold text-[10px] transition-all">Android</button>
-            <button onclick="switchCategory('ios')" id="tab-ios" class="tab-btn flex-1 py-2 rounded-xl font-bold text-[10px] text-slate-500 transition-all">iOS</button>
-        </div>
-    </div>
-
-    <main class="container mx-auto px-4 py-10">
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-20">
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- المنتجات -->
+            <!-- Products Loaded by JS -->
         </div>
     </main>
+
+    <footer class="bg-white border-t border-slate-100 py-10 text-center">
+        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">LividShop • Safe & Fast</p>
+    </footer>
 
     <script>
         let productsData = {};
         let currentLang = 'en';
         let currentGame = 'efootball';
-        let currentCategory = 'android'; // Android or iOS
+        let currentCategory = 'android';
 
-        const gameImages = {
-            bountyrush: "https://i.ibb.co/B5vdd88v/bounty.jpg",
-            tsubasa: "https://i.ibb.co/ch6RmSBM/tsubasa.jpg",
-            yugioh: "https://i.ibb.co/Fb4kKjgv/yugioh.jpg",
-            genshin: "https://i.ibb.co/wN78WcTZ/genshin.jpg"
+        // Secure config
+        const shopConfig = {
+            wa: "9647805380508",
+            email: "GoLividShop@gmail.com"
+        };
+
+        const gamesInfo = {
+            bountyrush: { img: "https://i.ibb.co/B5vdd88v/bounty.jpg", title: "Bounty Rush" },
+            tsubasa: { img: "https://i.ibb.co/ch6RmSBM/tsubasa.jpg", title: "Captain Tsubasa" },
+            yugioh: { img: "https://i.ibb.co/Fb4kKjgv/yugioh.jpg", title: "Yu-Gi-Oh!" },
+            genshin: { img: "https://i.ibb.co/wN78WcTZ/genshin.jpg", title: "Genshin Impact" }
         };
 
         const translations = {
-            en: { soon: "Available Soon", buy_wa: "WhatsApp", buy_gm: "Gmail", lang_btn: "العربية" },
-            ar: { soon: "يتوفر قريباً", buy_wa: "واتساب", buy_gm: "جيميل", lang_btn: "English" }
+            en: {
+                lang_btn: "العربية",
+                hero_title: "Livid Gaming Store",
+                bio: "Welcome to LividShop. We provide verified gaming accounts with the best market prices. Our goal is to ensure a safe and fast delivery experience for every gamer.",
+                buy_wa: "WhatsApp",
+                buy_gm: "Gmail",
+                soon: "COMING SOON",
+                device: "Device"
+            },
+            ar: {
+                lang_btn: "English",
+                hero_title: "متجر ليفيد للألعاب",
+                bio: "أهلاً بكم في متجر ليفيد. نوفر لكم حسابات ألعاب موثوقة بأفضل الأسعار في السوق. هدفنا هو ضمان تجربة شراء آمنة وسريعة لكل لاعب.",
+                buy_wa: "واتساب",
+                buy_gm: "جيميل",
+                soon: "يتوفر قريباً",
+                device: "الجهاز"
+            }
         };
 
         async function init() {
-            const res = await fetch('products.json');
-            productsData = await res.json();
+            try {
+                const response = await fetch('products.json');
+                productsData = await response.json();
+                updateUI();
+            } catch (e) {
+                console.error("JSON Error");
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const isAr = currentLang === 'ar';
+            document.getElementById('main-html').dir = isAr ? 'rtl' : 'ltr';
+            document.body.className = `bg-slate-50 text-slate-900 lang-${currentLang}`;
+            document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
+            document.getElementById('hero-title').innerText = translations[currentLang].hero_title;
+            document.getElementById('bio-text').innerText = translations[currentLang].bio;
             render();
         }
 
         function selectGame(game) {
             currentGame = game;
-            document.querySelectorAll('button[id^="game-"]').forEach(b => {
-                b.classList.remove('text-indigo-600', 'border-indigo-600', 'border-b-2');
-                b.classList.add('text-slate-400');
+            document.querySelectorAll('.game-tab').forEach(btn => {
+                btn.classList.remove('active', 'text-indigo-600');
+                btn.classList.add('text-slate-400');
             });
-            document.getElementById(`game-${game}`).classList.add('text-indigo-600', 'border-indigo-600', 'border-b-2');
-            document.getElementById(`game-${game}`).classList.remove('text-slate-400');
+            document.getElementById(`game-${game}`).classList.add('active', 'text-indigo-600');
             
-            // إخفاء أو إظهار اختيار الجهاز (Android/iOS) فقط في ايفوتبول
-            document.getElementById('device-selector').style.display = (game === 'efootball') ? 'block' : 'none';
+            // Toggle platform selector visibility
+            document.getElementById('device-tabs-container').style.display = (game === 'efootball') ? 'block' : 'none';
             render();
         }
 
         function switchCategory(cat) {
             currentCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.device-tab').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-slate-400');
+            });
             document.getElementById(`tab-${cat}`).classList.add('active');
-            render();
-        }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            document.getElementById('main-html').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
+            document.getElementById(`tab-${cat}`).classList.remove('text-slate-400');
             render();
         }
 
@@ -114,31 +195,59 @@
             const t = translations[currentLang];
 
             if (currentGame !== 'efootball') {
-                // عرض واجهة "قريباً" للألعاب الأخرى
                 grid.innerHTML = `
-                    <div class="col-span-full flex flex-col items-center py-10">
-                        <img src="${gameImages[currentGame]}" class="w-64 h-40 object-cover rounded-3xl shadow-lg mb-6 grayscale">
-                        <div class="coming-soon-tag">${t.soon}</div>
+                    <div class="col-span-full flex flex-col items-center py-12">
+                        <div class="relative w-64 h-40 rounded-3xl overflow-hidden shadow-xl mb-6">
+                            <img src="${gamesInfo[currentGame].img}" class="w-full h-full object-cover grayscale opacity-30">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="bg-indigo-600 text-white px-5 py-1.5 rounded-full font-black text-[10px] tracking-widest shadow-lg">${t.soon}</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-400 uppercase tracking-widest">${gamesInfo[currentGame].title}</h3>
                     </div>
                 `;
                 return;
             }
 
-            // عرض منتجات Efootball (Android أو iOS)
             const products = productsData[currentCategory] || [];
             grid.innerHTML = products.map(p => `
-                <div class="product-card bg-white border border-slate-100 flex flex-col h-full shadow-sm">
-                    <img src="${p.image}" class="w-full aspect-video object-cover">
-                    <div class="p-4 flex-grow flex flex-col">
-                        <h4 class="font-bold text-sm mb-1">${p.title}</h4>
-                        <div class="text-indigo-600 font-black text-lg mb-4">${p.info} = $${p.price}</div>
+                <div class="product-card bg-white border border-slate-200 flex flex-col h-full shadow-sm">
+                    <div class="relative aspect-video">
+                        <img src="${p.image}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x225?text=LividShop'">
+                        <div class="absolute top-2 left-2 bg-black/60 text-white text-[8px] font-bold px-2 py-0.5 rounded backdrop-blur-md uppercase">
+                            ${currentCategory}
+                        </div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h4 class="font-bold text-slate-800 mb-1 text-sm">${p.title}</h4>
+                        <div class="text-indigo-600 font-black text-lg mb-5">${p.info} = $${p.price}</div>
+                        
                         <div class="grid grid-cols-2 gap-2 mt-auto">
-                            <button class="bg-green-500 text-white py-2 rounded-xl text-[10px] font-bold"><i class="fab fa-whatsapp"></i> ${t.buy_wa}</button>
-                            <button class="bg-slate-50 text-slate-600 py-2 rounded-xl text-[10px] font-bold border border-slate-100"><i class="far fa-envelope"></i> ${t.buy_gm}</button>
+                            <button onclick="order('wa', '${p.title}', '${p.info}', '${p.price}')" 
+                                class="bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-[10px] flex items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
+                                <i class="fab fa-whatsapp"></i> ${t.buy_wa}
+                            </button>
+                            <button onclick="order('email', '${p.title}', '${p.info}', '${p.price}')" 
+                                class="bg-slate-50 hover:bg-slate-100 text-slate-600 py-2.5 rounded-xl font-bold text-[10px] flex items-center justify-center gap-1 transition-all active:scale-95 border border-slate-200">
+                                <i class="far fa-envelope"></i> ${t.buy_gm}
+                            </button>
                         </div>
                     </div>
                 </div>
             `).join('');
+        }
+
+        function order(type, title, info, price) {
+            const message = `Order Request:\nGame: ${currentGame.toUpperCase()}\nProduct: ${title}\nInfo: ${info}\nDevice: ${currentCategory.toUpperCase()}\nPrice: $${price}`;
+            
+            if (type === 'wa') {
+                const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
+            } else {
+                const subject = encodeURIComponent(`Purchase: ${title}`);
+                const body = encodeURIComponent(message);
+                window.location.href = `mailto:${shopConfig.email}?subject=${subject}&body=${body}`;
+            }
         }
 
         window.onload = init;
