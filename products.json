@@ -1,122 +1,34 @@
-[
-  {
-    "id": 1,
-    "name_en": "Efootball 2100 🪙 (Android)",
-    "name_ar": "ايفوتبول 2100 كوينز (أندرويد)",
-    "price": "4",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "2100 Coins for Android accounts. Secure Recharge.",
-    "desc_ar": "شحن 2100 كوينز لحسابات الأندرويد. شحن آمن ومضمون."
-  },
-  {
-    "id": 2,
-    "name_en": "Efootball 3100 🪙 (Android)",
-    "name_ar": "ايفوتبول 3100 كوينز (أندرويد)",
-    "price": "4.6",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "3100 Coins for Android accounts.",
-    "desc_ar": "شحن 3100 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 3,
-    "name_en": "Efootball 4100 🪙 (Android)",
-    "name_ar": "ايفوتبول 4100 كوينز (أندرويد)",
-    "price": "6",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "4100 Coins for Android accounts.",
-    "desc_ar": "شحن 4100 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 4,
-    "name_en": "Efootball 5100 🪙 (Android)",
-    "name_ar": "ايفوتبول 5100 كوينز (أندرويد)",
-    "price": "7.8",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "5100 Coins for Android accounts.",
-    "desc_ar": "شحن 5100 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 5,
-    "name_en": "Efootball 6000 🪙 (Android)",
-    "name_ar": "ايفوتبول 6000 كوينز (أندرويد)",
-    "price": "9.5",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "6000 Coins for Android accounts.",
-    "desc_ar": "شحن 6000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 6,
-    "name_en": "Efootball 7000 🪙 (Android)",
-    "name_ar": "ايفوتبول 7000 كوينز (أندرويد)",
-    "price": "12",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "7000 Coins for Android accounts.",
-    "desc_ar": "شحن 7000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 7,
-    "name_en": "Efootball 8000 🪙 (Android)",
-    "name_ar": "ايفوتبول 8000 كوينز (أندرويد)",
-    "price": "15.5",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "8000 Coins for Android accounts.",
-    "desc_ar": "شحن 8000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 8,
-    "name_en": "Efootball 9000 🪙 (Android)",
-    "name_ar": "ايفوتبول 9000 كوينز (أندرويد)",
-    "price": "18",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "9000 Coins for Android accounts.",
-    "desc_ar": "شحن 9000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 9,
-    "name_en": "Efootball 10000 🪙 (Android)",
-    "name_ar": "ايفوتبول 10000 كوينز (أندرويد)",
-    "price": "21",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "10000 Coins for Android accounts.",
-    "desc_ar": "شحن 10000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 10,
-    "name_en": "Efootball 11000 🪙 (Android)",
-    "name_ar": "ايفوتبول 11000 كوينز (أندرويد)",
-    "price": "24",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "11000 Coins for Android accounts.",
-    "desc_ar": "شحن 11000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 11,
-    "name_en": "Efootball 12000 🪙 (Android)",
-    "name_ar": "ايفوتبول 12000 كوينز (أندرويد)",
-    "price": "28",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "12000 Coins for Android accounts.",
-    "desc_ar": "شحن 12000 كوينز لحسابات الأندرويد."
-  },
-  {
-    "id": 12,
-    "name_en": "Efootball 13000 🪙 (Android)",
-    "name_ar": "ايفوتبول 13000 كوينز (أندرويد)",
-    "price": "31",
-    "currency": "$",
-    "image": "1000227623.jpg",
-    "desc_en": "13000 Coins for Android accounts.",
-    "desc_ar": "شحن 13000 كوينز لحسابات الأندرويد."
-  }
+{
+"efootball": [
+{
+"id": 1,
+"title": "Efootball Account",
+"info": "2100 Coins",
+"price": "4",
+"image": "1000227623.jpg"
+},
+{
+"id": 2,
+"title": "Efootball Account",
+"info": "3100 Coins",
+"price": "4.6",
+"image": "1000227623.jpg"
+}
+],
+"bountyrush": [
+{
+"id": 101,
+"title": "Bounty Rush Acc",
+"info": "1000 Gems",
+"price": "5",
+"image": "bounty_1.jpg"
+},
+{
+"id": 102,
+"title": "Bounty Rush Acc",
+"info": "MAX Character",
+"price": "15",
+"image": "bounty_2.jpg"
+}
 ]
+}
