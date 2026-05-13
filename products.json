@@ -1,0 +1,20 @@
+[
+{
+"id": 1,
+"name_en": "Iphone 15 Pro Max",
+"name_ar": "ايفون 15 برو ماكس",
+"price": "1,650,000",
+"image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500",
+"desc_en": "Natural Titanium, 256GB storage.",
+"desc_ar": "تيتانيوم طبيعي، ذاكرة 256 جيجابايت."
+},
+{
+"id": 2,
+"name_en": "Sony WH-1000XM5",
+"name_ar": "سماعة سوني XM5",
+"price": "380,000",
+"image": "https://images.unsplash.com/photo-1644933214828-569b3f3e1f0e?w=500",
+"desc_en": "Industry leading noise canceling.",
+"desc_ar": "أفضل تقنية عزل ضجيج في العالم."
+}
+]
