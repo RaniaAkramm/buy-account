@@ -1,29 +1,20 @@
 [
   {
     "id": 1,
-    "name_en": "Efootball 2026 | Full Epic Squad",
-    "name_ar": "حساب ايفوت 2026 | تشكيلة ايبك كاملة",
+    "name_en": "Efootball 2026 - Epic Team",
+    "name_ar": "حساب ايفوت 2026 - فريق ايبك",
     "price": "120,000",
     "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500",
-    "desc_en": "Includes Messi, Ronaldo Epic and 2000 coins.",
-    "desc_ar": "يحتوي على ميسي ورونالدو ايبك مع 2000 كوينز."
+    "desc_en": "3000+ Team Strength, Full Epic Cards.",
+    "desc_ar": "قوة الفريق +3000، تشكيلة ايبك كاملة."
   },
   {
     "id": 2,
-    "name_en": "One Piece Bounty Rush | EX Gear 5",
-    "name_ar": "بونتي راش | لوفي قير 5 أقصى لفل",
+    "name_en": "Bounty Rush - EX Gear 5",
+    "name_ar": "بونتي راش - لوفي قير 5",
     "price": "90,000",
     "image": "https://images.unsplash.com/photo-1618519764620-7403abdbf956?w=500",
-    "desc_en": "Max level Gear 5 Luffy + EX Zoro.",
-    "desc_ar": "لوفي القير الخامس لفل 100 مع زورو EX."
-  },
-  {
-    "id": 3,
-    "name_en": "Efootball Account | Starter Pack",
-    "name_ar": "حساب ايفوت | باقة المبتدئين",
-    "price": "25,000",
-    "image": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=500",
-    "desc_en": "Perfect starter account with 5000 coins.",
-    "desc_ar": "حساب مثالي للبداية مع 5000 كوينز."
+    "desc_en": "Level 100 Gear 5 Luffy, max support.",
+    "desc_ar": "لوفي القير الخامس لفل 100، دعم كامل."
   }
 ]
