@@ -84,7 +84,7 @@
         </div>
     </nav>
 
-    <!-- Platform Selector (Separated with Padding) -->
+    <!-- Platform Selector -->
     <div id="device-tabs-container" class="py-8 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="bg-white p-1 rounded-2xl shadow-sm border border-slate-200 flex gap-1 max-w-[240px] mx-auto">
@@ -111,7 +111,6 @@
         let currentGame = 'efootball';
         let currentCategory = 'android';
 
-        // Secure config
         const shopConfig = {
             wa: "9647805380508",
             email: "GoLividShop@gmail.com"
@@ -131,8 +130,8 @@
                 bio: "Welcome to LividShop. We provide verified gaming accounts with the best market prices. Our goal is to ensure a safe and fast delivery experience for every gamer.",
                 buy_wa: "WhatsApp",
                 buy_gm: "Gmail",
-                soon: "COMING SOON",
-                device: "Device"
+                buy_binance: "Binance Pay",
+                soon: "COMING SOON"
             },
             ar: {
                 lang_btn: "English",
@@ -140,8 +139,8 @@
                 bio: "أهلاً بكم في متجر ليفيد. نوفر لكم حسابات ألعاب موثوقة بأفضل الأسعار في السوق. هدفنا هو ضمان تجربة شراء آمنة وسريعة لكل لاعب.",
                 buy_wa: "واتساب",
                 buy_gm: "جيميل",
-                soon: "يتوفر قريباً",
-                device: "الجهاز"
+                buy_binance: "بينانس باي",
+                soon: "يتوفر قريباً"
             }
         };
 
@@ -173,8 +172,6 @@
                 btn.classList.add('text-slate-400');
             });
             document.getElementById(`game-${game}`).classList.add('active', 'text-indigo-600');
-            
-            // Toggle platform selector visibility
             document.getElementById('device-tabs-container').style.display = (game === 'efootball') ? 'block' : 'none';
             render();
         }
@@ -222,14 +219,18 @@
                         <h4 class="font-bold text-slate-800 mb-1 text-sm">${p.title}</h4>
                         <div class="text-indigo-600 font-black text-lg mb-5">${p.info} = $${p.price}</div>
                         
-                        <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <div class="grid grid-cols-3 gap-2 mt-auto">
                             <button onclick="order('wa', '${p.title}', '${p.info}', '${p.price}')" 
-                                class="bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-[10px] flex items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
-                                <i class="fab fa-whatsapp"></i> ${t.buy_wa}
+                                class="bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
+                                <i class="fab fa-whatsapp text-sm"></i> ${t.buy_wa}
+                            </button>
+                            <button onclick="order('binance', '${p.title}', '${p.info}', '${p.price}')" 
+                                class="bg-amber-500 hover:bg-amber-600 text-white py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
+                                <i class="fas fa-coins text-sm"></i> ${t.buy_binance}
                             </button>
                             <button onclick="order('email', '${p.title}', '${p.info}', '${p.price}')" 
-                                class="bg-slate-50 hover:bg-slate-100 text-slate-600 py-2.5 rounded-xl font-bold text-[10px] flex items-center justify-center gap-1 transition-all active:scale-95 border border-slate-200">
-                                <i class="far fa-envelope"></i> ${t.buy_gm}
+                                class="bg-slate-50 hover:bg-slate-100 text-slate-600 py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 border border-slate-200">
+                                <i class="far fa-envelope text-sm"></i> ${t.buy_gm}
                             </button>
                         </div>
                     </div>
@@ -242,6 +243,10 @@
             
             if (type === 'wa') {
                 const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
+            } else if (type === 'binance') {
+                // توجيه العميل للدفع المباشر أو تواصل لتأكيد الدفع الرقمي مع إرفاق تفاصيل الطلب
+                const encoded = encodeURIComponent(`I want to pay via Binance Pay for:\n${message}`);
                 window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
             } else {
                 const subject = encodeURIComponent(`Purchase: ${title}`);
