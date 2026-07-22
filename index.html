@@ -106,7 +106,8 @@
 
         const shopConfig = {
             wa: "9647805380508",
-            email: "GoLividShop@gmail.com"
+            email: "GoLividShop@gmail.com",
+            binancePayLink: "https://app.binance.com/qr/YOUR_BINANCE_PAY_LINK_OR_ID" // ضع رابط بينانس الخاص بك هنا بدلاً من هذا الرابط
         };
 
         const gamesInfo = {
@@ -212,8 +213,8 @@
                 const encoded = encodeURIComponent(message);
                 window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
             } else if (type === 'binance') {
-                const encoded = encodeURIComponent(`I want to pay via Binance Pay for:\n${message}`);
-                window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
+                // الآن سينتقل إلى رابط بينانس مباشرة بدلاً من الواتساب
+                window.open(shopConfig.binancePayLink, '_blank');
             } else {
                 const subject = encodeURIComponent(`Purchase: ${title}`);
                 const body = encodeURIComponent(message);
