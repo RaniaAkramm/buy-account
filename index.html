@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         
-        :root { --font-en: 'Inter', sans-serif; --font-ar: 'Tajawal', sans-serif; }
-        .lang-ar { font-family: var(--font-ar); }
-        .lang-en { font-family: var(--font-en); }
+        :root { --font-en: 'Inter', sans-serif; }
+        body { font-family: var(--font-en); }
         
         /* Game Selection Tabs */
         .game-tab { position: relative; transition: all 0.3s; }
@@ -42,7 +41,7 @@
         .scrollbar-hide::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 lang-en">
+<body class="bg-slate-50 text-slate-900">
 
     <!-- Header -->
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
@@ -53,20 +52,15 @@
                 </div>
                 <h1 class="text-xl font-black tracking-tight">Livid<span class="text-indigo-600">Shop</span></h1>
             </div>
-            
-            <button onclick="toggleLanguage()" class="bg-slate-900 text-white px-4 py-2 rounded-full font-bold text-[10px] flex items-center gap-2 uppercase tracking-widest hover:bg-indigo-600 transition-all">
-                <i class="fas fa-language"></i>
-                <span id="lang-btn-text">العربية</span>
-            </button>
         </div>
     </header>
 
     <!-- Bio & Welcome Section -->
     <section class="bg-slate-950 text-white pt-12 pb-16 relative overflow-hidden">
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <h2 id="hero-title" class="text-3xl md:text-5xl font-black mb-6">Livid Gaming Store</h2>
+            <h2 class="text-3xl md:text-5xl font-black mb-6">Livid Gaming Store</h2>
             <div class="max-w-xl mx-auto bg-white/5 border border-white/10 p-5 rounded-[2rem] backdrop-blur-md">
-                <p id="bio-text" class="text-slate-400 text-sm md:text-base leading-relaxed italic">
+                <p class="text-slate-400 text-sm md:text-base leading-relaxed italic">
                     Welcome to LividShop. We provide verified gaming accounts with the best market prices. Our goal is to ensure a safe and fast delivery experience for every gamer.
                 </p>
             </div>
@@ -107,7 +101,6 @@
 
     <script>
         let productsData = {};
-        let currentLang = 'en';
         let currentGame = 'efootball';
         let currentCategory = 'android';
 
@@ -123,46 +116,14 @@
             genshin: { img: "https://i.ibb.co/wN78WcTZ/genshin.jpg", title: "Genshin Impact" }
         };
 
-        const translations = {
-            en: {
-                lang_btn: "العربية",
-                hero_title: "Livid Gaming Store",
-                bio: "Welcome to LividShop. We provide verified gaming accounts with the best market prices. Our goal is to ensure a safe and fast delivery experience for every gamer.",
-                buy_wa: "WhatsApp",
-                buy_gm: "Gmail",
-                buy_binance: "Binance Pay",
-                soon: "COMING SOON"
-            },
-            ar: {
-                lang_btn: "English",
-                hero_title: "متجر ليفيد للألعاب",
-                bio: "أهلاً بكم في متجر ليفيد. نوفر لكم حسابات ألعاب موثوقة بأفضل الأسعار في السوق. هدفنا هو ضمان تجربة شراء آمنة وسريعة لكل لاعب.",
-                buy_wa: "واتساب",
-                buy_gm: "جيميل",
-                buy_binance: "بينانس باي",
-                soon: "يتوفر قريباً"
-            }
-        };
-
         async function init() {
             try {
                 const response = await fetch('products.json');
                 productsData = await response.json();
-                updateUI();
+                render();
             } catch (e) {
                 console.error("JSON Error");
             }
-        }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            const isAr = currentLang === 'ar';
-            document.getElementById('main-html').dir = isAr ? 'rtl' : 'ltr';
-            document.body.className = `bg-slate-50 text-slate-900 lang-${currentLang}`;
-            document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
-            document.getElementById('hero-title').innerText = translations[currentLang].hero_title;
-            document.getElementById('bio-text').innerText = translations[currentLang].bio;
-            render();
         }
 
         function selectGame(game) {
@@ -189,7 +150,6 @@
 
         function render() {
             const grid = document.getElementById('products-grid');
-            const t = translations[currentLang];
 
             if (currentGame !== 'efootball') {
                 grid.innerHTML = `
@@ -197,7 +157,7 @@
                         <div class="relative w-64 h-40 rounded-3xl overflow-hidden shadow-xl mb-6">
                             <img src="${gamesInfo[currentGame].img}" class="w-full h-full object-cover grayscale opacity-30">
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <span class="bg-indigo-600 text-white px-5 py-1.5 rounded-full font-black text-[10px] tracking-widest shadow-lg">${t.soon}</span>
+                                <span class="bg-indigo-600 text-white px-5 py-1.5 rounded-full font-black text-[10px] tracking-widest shadow-lg">COMING SOON</span>
                             </div>
                         </div>
                         <h3 class="text-xl font-black text-slate-400 uppercase tracking-widest">${gamesInfo[currentGame].title}</h3>
@@ -217,21 +177,28 @@
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
                         <h4 class="font-bold text-slate-800 mb-1 text-sm">${p.title}</h4>
-                        <div class="text-indigo-600 font-black text-lg mb-5">${p.info} = $${p.price}</div>
+                        <div class="text-indigo-600 font-black text-lg mb-4">${p.info} = $${p.price}</div>
                         
-                        <div class="grid grid-cols-3 gap-2 mt-auto">
-                            <button onclick="order('wa', '${p.title}', '${p.info}', '${p.price}')" 
-                                class="bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
-                                <i class="fab fa-whatsapp text-sm"></i> ${t.buy_wa}
-                            </button>
+                        <!-- Main Binance Pay Button -->
+                        <div class="mt-auto">
                             <button onclick="order('binance', '${p.title}', '${p.info}', '${p.price}')" 
-                                class="bg-amber-500 hover:bg-amber-600 text-white py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
-                                <i class="fas fa-coins text-sm"></i> ${t.buy_binance}
+                                class="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-xl font-black text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 shadow-md mb-3">
+                                <i class="fas fa-coins text-sm"></i> Buy with Binance Pay
                             </button>
-                            <button onclick="order('email', '${p.title}', '${p.info}', '${p.price}')" 
-                                class="bg-slate-50 hover:bg-slate-100 text-slate-600 py-2.5 rounded-xl font-bold text-[9px] flex flex-col items-center justify-center gap-1 transition-all active:scale-95 border border-slate-200">
-                                <i class="far fa-envelope text-sm"></i> ${t.buy_gm}
-                            </button>
+
+                            <p class="text-[9px] text-slate-400 text-center mb-2 font-medium uppercase tracking-tight">Or contact us to speed up your order</p>
+
+                            <!-- Secondary WhatsApp & Email Buttons -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="order('wa', '${p.title}', '${p.info}', '${p.price}')" 
+                                    class="bg-green-500 hover:bg-green-600 text-white py-2 rounded-xl font-bold text-[9px] flex items-center justify-center gap-1 transition-all active:scale-95 shadow-sm">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
+                                <button onclick="order('email', '${p.title}', '${p.info}', '${p.price}')" 
+                                    class="bg-slate-100 hover:bg-slate-200 text-slate-600 py-2 rounded-xl font-bold text-[9px] flex items-center justify-center gap-1 transition-all active:scale-95 border border-slate-200">
+                                    <i class="far fa-envelope"></i> Email
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,7 +212,6 @@
                 const encoded = encodeURIComponent(message);
                 window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
             } else if (type === 'binance') {
-                // توجيه العميل للدفع المباشر أو تواصل لتأكيد الدفع الرقمي مع إرفاق تفاصيل الطلب
                 const encoded = encodeURIComponent(`I want to pay via Binance Pay for:\n${message}`);
                 window.open(`https://wa.me/${shopConfig.wa}?text=${encoded}`, '_blank');
             } else {
