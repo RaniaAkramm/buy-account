@@ -24,15 +24,15 @@
     { "id": 108, "title": "Efootball 2026", "info": "12k-13k 🪙", "price": "25", "image": "https://i.ibb.co/ycwq3CpQ/images.jpg" }
   ],
   "bountyrush": [
-    { "id": 201, "title": "One Piece Bounty Rush", "info": "Coming Soon - قريباً", "price": "0", "image": "https://ibb.co/B5vdd88v" }
+    { "id": 201, "title": "One Piece Bounty Rush", "info": "Coming Soon - قريباً", "price": "0", "image": "https://i.ibb.co/B5vdd88v/bounty.jpg" }
   ],
   "tsubasa": [
-    { "id": 301, "title": "Captain Tsubasa: DT", "info": "Coming Soon - قريباً", "price": "0", "image": "https://ibb.co/ch6RmSBM" }
+    { "id": 301, "title": "Captain Tsubasa: DT", "info": "Coming Soon - قريباً", "price": "0", "image": "https://i.ibb.co/ch6RmSBM/tsubasa.jpg" }
   ],
   "yugioh": [
-    { "id": 401, "title": "Yu-Gi-Oh! Master Duel", "info": "Coming Soon - قريباً", "price": "0", "image": "https://ibb.co/Fb4kKjgv" }
+    { "id": 401, "title": "Yu-Gi-Oh! Master Duel", "info": "Coming Soon - قريباً", "price": "0", "image": "https://i.ibb.co/Fb4kKjgv/yugioh.jpg" }
   ],
   "genshin": [
-    { "id": 501, "title": "Genshin Impact", "info": "Coming Soon - قريباً", "price": "0", "image": "https://ibb.co/wN78WcTZ" }
+    { "id": 501, "title": "Genshin Impact", "info": "Coming Soon - قريباً", "price": "0", "image": "https://i.ibb.co/wN78WcTZ/genshin.jpg" }
   ]
 }
