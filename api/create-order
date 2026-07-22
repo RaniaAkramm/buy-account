@@ -1,0 +1,89 @@
+// /api/create-order.js
+// Vercel Serverless Function — creates a real Binance Pay order (Create Order v3)
+// Uses BINANCE_API_KEY and BINANCE_SECRET_KEY from Vercel Environment Variables.
+
+const crypto = require('crypto');
+
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const { title, info, price, category } = req.body || {};
+
+    if (!title || !price) {
+      return res.status(400).json({ error: 'Missing product data' });
+    }
+
+    const apiKey = process.env.BINANCE_API_KEY;
+    const secretKey = process.env.BINANCE_SECRET_KEY;
+
+    if (!apiKey || !secretKey) {
+      return res.status(500).json({ error: 'Binance API credentials not configured' });
+    }
+
+    const timestamp = Date.now();
+    const nonce = crypto.randomBytes(16).toString('hex');
+    const merchantTradeNo = `ORD${timestamp}${Math.floor(Math.random() * 1000)}`;
+
+    const orderBody = {
+      env: { terminalType: 'WEB' },
+      merchantTradeNo,
+      orderAmount: Number(price),
+      currency: 'USDT',
+      description: `${title} (${info})`,
+      goodsDetails: [
+        {
+          goodsType: '02',
+          goodsCategory: 'Z000',
+          referenceGoodsId: merchantTradeNo,
+          goodsName: title,
+          goodsDetail: `${info}${category ? ' - ' + category : ''}`
+        }
+      ]
+    };
+
+    const bodyString = JSON.stringify(orderBody);
+
+    // Binance Pay signature: HMAC-SHA512(timestamp + "\n" + nonce + "\n" + body + "\n", secretKey), uppercase hex
+    const payload = `${timestamp}\n${nonce}\n${bodyString}\n`;
+    const signature = crypto
+      .createHmac('sha512', secretKey)
+      .update(payload)
+      .digest('hex')
+      .toUpperCase();
+
+    const binanceRes = await fetch('https://bpay.binanceapi.com/binancepay/openapi/v3/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'BinancePay-Timestamp': String(timestamp),
+        'BinancePay-Nonce': nonce,
+        'BinancePay-Certificate-SN': apiKey,
+        'BinancePay-Signature': signature
+      },
+      body: bodyString
+    });
+
+    const data = await binanceRes.json();
+
+    if (data.status !== 'SUCCESS') {
+      console.error('Binance order failed:', data);
+      return res.status(400).json({
+        error: data.errorMessage || 'Binance order creation failed'
+      });
+    }
+
+    return res.status(200).json({
+      checkoutUrl: data.data.checkoutUrl,
+      qrcodeLink: data.data.qrcodeLink,
+      deeplink: data.data.deeplink,
+      prepayId: data.data.prepayId,
+      merchantTradeNo
+    });
+  } catch (err) {
+    console.error('Create order error:', err);
+    return res.status(500).json({ error: 'Server error creating order' });
+  }
+};
